@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Work</title>
+    <link rel="stylesheet" href="CSS-port.css">
+    <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="navbar">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="portfolio.html">Portfolio</a></li>
+            <li><a href="aboutme.html">About me</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </div>
+    <div class="content">
+        <h1>My Portfolio</h1>
+        <p>Coming soon</p>
+    </div>
+</body>
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const links = document.querySelectorAll('.navbar a');
+        const content = document.querySelector('.content');
+
+        links.forEach(link => {
+            link.addEventListener('click', function(event) {
+                event.preventDefault(); // หยุดการทำงานปกติของลิงก์
+                const targetPage = this.getAttribute('href'); // รับลิงก์ที่ต้องการไป
+
+                // ทำให้ content จางหาย
+                content.classList.add('fade-content');
+
+                // รอจนกว่า content จะจางหาย
+                setTimeout(() => {
+                    window.location.href = targetPage; // เปลี่ยนหน้าเว็บหลังจากการจางหายเสร็จสิ้น
+                }, 500); // ใช้เวลาเท่ากับ transition CSS
+            });
+        });
+    });
+</script>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Work</title>
+    <link rel="stylesheet" href="CSS-contact.css">
+    <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="navbar">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="portfolio.html">Portfolio</a></li>
+            <li><a href="aboutme.html">About me</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </div>
+    <div class="content">
+        <h1>Contact</h1>
+        <div class="boxes">
+            <a href="https://www.instagram.com/au_nxpp1t/" class="box">
+                <div class="content">
+                    <img src="https://awareak.org/wp-content/uploads/2023/07/CITYPNG.COMHD-White-Instagram-Round-Logo-Icon-PNG-1600x1200-1.png" alt="Instagram">
+                    <p>au_nxpp1t</p>
+                </div>
+            </a>
+            <a href="https://www.facebook.com/profile.php?id=61552417494339&locale=th_TH" class="box">
+                <div class="content">
+                    <img src="https://img.icons8.com/m_sharp/200/FFFFFF/facebook-new.png" alt="Facebook">
+                    <p>CxllmeNoppit't</p>
+                </div>
+            </a>
+            <a href="https://line.me/ti/p/0611682541" class="box">
+                <div class="content">
+                    <img src="https://s3.ap-southeast-1.amazonaws.com/fn.dmpcdn.com/trueyou_html_sites/truepoint/assets/img/ICON_Line.png" alt="Line">
+                    <p>Au</p>
+                </div>
+            </a>
+            <a href="https://www.tiktok.com/@au_nxpp1t?is_from_webapp=1&sender_device=pc" class="box">
+                <div class="content">
+                    <img src="https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/tiktok-round-white-icon.png" alt="Gmail">
+                    <p>@au_nxpp1t</p>
+                </div>
+            </a>
+        </div>
+        
+        </div>
+        
+    </div>
+</body>
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const links = document.querySelectorAll('.navbar a');
+        const content = document.querySelector('.content');
+
+        links.forEach(link => {
+            link.addEventListener('click', function(event) {
+                event.preventDefault(); // หยุดการทำงานปกติของลิงก์
+                const targetPage = this.getAttribute('href'); // รับลิงก์ที่ต้องการไป
+
+                // ทำให้ content จางหาย
+                content.classList.add('fade-content');
+
+                // รอจนกว่า content จะจางหาย
+                setTimeout(() => {
+                    window.location.href = targetPage; // เปลี่ยนหน้าเว็บหลังจากการจางหายเสร็จสิ้น
+                }, 500); // ใช้เวลาเท่ากับ transition CSS
+            });
+        });
+    });
+</script>
+</html>

@@ -1,0 +1,154 @@
+body {
+    background-color: black;
+    color: white;
+    font-family: 'Prompt', sans-serif; /* ใช้ฟอนต์ Prompt */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    overflow: hidden;
+    transition: opacity 0.5s ease; /* ทำให้ทั้ง body มี transition */
+}
+
+.navbar {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    background-color: transparent;
+    position: fixed;
+    top: 20px;
+    left: 20px;
+}
+
+.navbar ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+}
+
+.navbar ul li {
+    margin: 0 20px;
+}
+
+.navbar ul li a {
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+    font-size: 1.2em;
+    position: relative;
+    padding: 10px 0;
+}
+
+.navbar ul li a::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 2px;
+    background: white;
+    transition: width 0.3s;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.navbar ul li a:hover::after {
+    width: 100%;
+}
+
+.content {
+    text-align: center;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    opacity: 1;
+    transition: opacity 0.5s ease; /* Transition สำหรับ .content */
+}
+
+h1 {
+    font-size: 5em;
+    margin-bottom: 10px; /* ปรับระยะห่างระหว่าง h1 กับ p */
+    margin-top: 4px; /* ปรับระยะห่างด้านบน */
+    opacity: 0;
+    animation: fadeInUp 2s forwards;
+}
+
+
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(100px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideInDown {
+    0% {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* คลาสสำหรับจางหาย */
+.fade-content {
+    opacity: 0;
+}
+
+
+.boxes {
+    display: flex;
+    flex-direction: column; /* จัดเรียงกล่องเป็นแนวตั้ง */
+    justify-content: center;
+    align-items: center; /* จัดให้กล่องอยู่ตรงกลางแนวนอน */
+    margin-top: 0px; /* ระยะห่างระหว่างกล่อง */
+}
+
+.box {
+    width: 400px;
+    height: 80px;
+    background: rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-radius: 20px;
+    backdrop-filter: blur(10px);
+    box-sizing: border-box;
+    display: flex;
+    align-items: center; /* จัดให้โลโก้และข้อความอยู่ตรงกลางแนวตั้ง */
+    justify-content: center; /* จัดให้โลโก้และข้อความอยู่ตรงกลางแนวนอน */
+    margin: 7.5px 0; /* ระยะห่างระหว่างกล่อง */
+    animation: slideInDown 1s forwards 2s;
+    opacity: 0;
+    transition: transform 0.3s ease; /* เพิ่ม transition สำหรับการขยาย */
+    text-decoration: none; /* เอาสีและเส้นขีดล่างออกจากลิงก์ */
+}
+
+.box:hover {
+    transform: scale(1); /* ขยายขนาดกล่องเล็กน้อยเมื่อชี้เคอร์เซอร์ */
+}
+
+.content {
+    display: flex;
+    align-items: center; /* จัดให้โลโก้และข้อความอยู่ตรงกลางแนวตั้ง */
+    gap: 1px; /* ระยะห่างระหว่างโลโก้และข้อความ */
+}
+
+.box img {
+    width: auto;
+    height: 40px; /* ปรับความสูงของโลโก้ */
+    object-fit: contain;
+}
+
+.box p {
+    color: white; /* สีของข้อความ */
+    font-size: 1.2em; /* ขนาดของข้อความ */
+    margin: 0; /* ลบระยะห่างเริ่มต้น */
+}
